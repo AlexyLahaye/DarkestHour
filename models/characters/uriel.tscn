@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://1afu03qi7t5l"]
+
+[ext_resource type="PackedScene" uid="uid://lr0ffphwiyt7" path="res://models/characters/uriel.glb" id="1_geh7e"]
+[ext_resource type="PackedScene" uid="uid://braonsrmliv37" path="res://scenes/torch.tscn" id="2_37yby"]
+
+[node name="uriel" groups=["blue_side"] instance=ExtResource("1_geh7e")]
+
+[node name="HandAttachement" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="24"]
+transform = Transform3D(1.52823e-07, -1, 2.98022e-08, 1, 7.77017e-08, -4.91463e-08, 1.06633e-07, 1.49012e-08, 1, -93.2814, -3.00292, -162.527)
+bone_name = "mixamorig_RightHand"
+bone_idx = 36
+
+[node name="torch" parent="Armature/Skeleton3D/HandAttachement" index="0" instance=ExtResource("2_37yby")]
+transform = Transform3D(7.77017e-06, 100, 1.24644e-05, -100, 1.52823e-05, 2.98022e-06, 1.49012e-06, -1.8213e-05, 100, 12.6912, 10.6744, 4.51181)

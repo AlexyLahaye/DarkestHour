@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck6vhrwgjfx0m"]
+
+[ext_resource type="PackedScene" uid="uid://do51dsf53hu1v" path="res://scenes/blue_side_slime.tscn" id="1_yixv5"]
+
+[sub_resource type="Curve3D" id="Curve3D_51eqj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -47.4986, 0.917475, -35.0253, 0, 0, 0, 0, 0, 0, -57.6298, 0.745243, -32.0472, 0, 0, 0, 0, 0, 0, -69.0106, 0.551768, -28.7018, 0, 0, 0, 0, 0, 0, -65.906, 0, -17.6312, 0, 0, 0, 0, 0, 0, -59.7222, 0, -9.96612, 0, 0, 0, 0, 0, 0, -52.8144, 0, -1.40376, 0, 0, 0, 0, 0, 0, -44.7688, 0, 8.56909, 0, 0, 0, 0, 0, 0, -35.1746, 0, 18.1629, 0, 0, 0, 0, 0, 0, -24.9172, 0, 28.4198, 0, 0, 0, 0, 0, 0, -16.7698, 0, 36.567, 0, 0, 0, 0, 0, 0, -9.33333, 0, 44.0031, 0, 0, 0, 0, 0, 0, -0.367917, 0, 51.4908, 0, 0, 0, 0, 0, 0, 8.10009, 0, 58.563, 0, 0, 0, 0, 0, 0, 17.4253, 0, 66.3512, 0, 0, 0, 0, 0, 0, 27.943, 0.635782, 66.7015, 0, 0, 0, 0, 0, 0, 33.9712, 0.595191, 56.0022, 0, 0, 0, 0, 0, 0, 40.4266, 0.551724, 44.5447),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 17
+
+[node name="blue_side_bottom" type="Node3D"]
+
+[node name="blue_path_bottom" type="Path3D" parent="."]
+curve = SubResource("Curve3D_51eqj")
+
+[node name="blue_side_slime" parent="blue_path_bottom" instance=ExtResource("1_yixv5")]
+transform = Transform3D(-0.28202, -0.015646, 0.959281, 0, 0.999867, 0.0163079, -0.959408, 0.00459917, -0.281983, -47.4986, 0.917475, -35.0253)

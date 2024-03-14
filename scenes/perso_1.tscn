@@ -1,0 +1,55 @@
+[gd_scene load_steps=18 format=3 uid="uid://j1cttwepjj6n"]
+
+[ext_resource type="PackedScene" uid="uid://d36teewi70o2a" path="res://scenes/player.tscn" id="1_hohg4"]
+[ext_resource type="PackedScene" uid="uid://bjqyykqx1dp5" path="res://models/characters/archer.glb" id="2_fvkb1"]
+[ext_resource type="Animation" uid="uid://k7lojcdqw0l6" path="res://models/characters/torch_anim_p1/torch_crouch_left_90.res" id="3_bgntu"]
+[ext_resource type="Animation" uid="uid://bbx7cwcp4ci2n" path="res://models/characters/torch_anim_p1/torch_crouch_right_90.res" id="4_cllue"]
+[ext_resource type="Animation" uid="uid://bbscxfj6dmqce" path="res://models/characters/torch_anim_p1/torch_crouch.res" id="5_u8xgi"]
+[ext_resource type="Animation" uid="uid://dtbrxuwn5pebm" path="res://models/characters/torch_anim_p1/a_voir.res" id="6_vsn1s"]
+[ext_resource type="Animation" uid="uid://d2toeii3tsa2t" path="res://models/characters/torch_anim_p1/torch_idle.res" id="7_d3pcc"]
+[ext_resource type="Animation" uid="uid://b8ifs5rm0vec5" path="res://models/characters/torch_anim_p1/torch_idle_2.res" id="8_jd252"]
+[ext_resource type="Animation" uid="uid://dq3776h7i61w6" path="res://models/characters/torch_anim_p1/torch_run.res" id="9_oahpj"]
+[ext_resource type="Animation" uid="uid://ca5xfva3o6s88" path="res://models/characters/torch_anim_p1/torch_turn_left_180.res" id="10_l5g5e"]
+[ext_resource type="Animation" uid="uid://cuy3c61alq4dd" path="res://models/characters/torch_anim_p1/torch_turn_left_90.res" id="11_tg6xd"]
+[ext_resource type="Animation" uid="uid://bs7upipoxmnn" path="res://models/characters/torch_anim_p1/torch_turn_right_180.res" id="12_s32j8"]
+[ext_resource type="Animation" uid="uid://bbet2eaona3ba" path="res://models/characters/torch_anim_p1/torch_turn_right_90.res" id="13_x7sni"]
+[ext_resource type="Animation" uid="uid://b235arvpba4ly" path="res://models/characters/torch_anim_p1/torch_walk.res" id="14_5pfb4"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_upw6r"]
+_data = {
+"torch_crouch_left_90": ExtResource("3_bgntu"),
+"torch_crouch_right_90": ExtResource("4_cllue"),
+"torch_crouch_walk": ExtResource("5_u8xgi"),
+"torch_equip": ExtResource("6_vsn1s"),
+"torch_idle": ExtResource("7_d3pcc"),
+"torch_idle_2": ExtResource("8_jd252"),
+"torch_run": ExtResource("9_oahpj"),
+"torch_turn_left_180": ExtResource("10_l5g5e"),
+"torch_turn_left_90": ExtResource("11_tg6xd"),
+"torch_turn_right_180": ExtResource("12_s32j8"),
+"torch_turn_right_90": ExtResource("13_x7sni"),
+"torch_walk": ExtResource("14_5pfb4")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8l4mi"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rk3h5"]
+viewport_path = NodePath("SubViewport2")
+
+[node name="Player" instance=ExtResource("1_hohg4")]
+
+[node name="Character" parent="." index="0" instance=ExtResource("2_fvkb1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="." index="2"]
+root_node = NodePath("../Character")
+libraries = {
+"torch_anim_p1": SubResource("AnimationLibrary_upw6r")
+}
+
+[node name="Sprite3D" parent="." index="5"]
+texture = SubResource("ViewportTexture_8l4mi")
+
+[node name="Sprite3D2" parent="." index="10"]
+texture = SubResource("ViewportTexture_rk3h5")

@@ -1,0 +1,192 @@
+[gd_scene load_steps=28 format=3 uid="uid://d36teewi70o2a"]
+
+[ext_resource type="Script" path="res://lib/player.gd" id="1_a31aj"]
+[ext_resource type="Animation" uid="uid://k7lojcdqw0l6" path="res://models/characters/torch_anim_p1/torch_crouch_left_90.res" id="2_ro4ef"]
+[ext_resource type="Animation" uid="uid://bbx7cwcp4ci2n" path="res://models/characters/torch_anim_p1/torch_crouch_right_90.res" id="3_ui2ae"]
+[ext_resource type="Animation" uid="uid://bbscxfj6dmqce" path="res://models/characters/torch_anim_p1/torch_crouch.res" id="4_dlitk"]
+[ext_resource type="Animation" uid="uid://dtbrxuwn5pebm" path="res://models/characters/torch_anim_p1/a_voir.res" id="5_hcmwy"]
+[ext_resource type="Animation" uid="uid://d2toeii3tsa2t" path="res://models/characters/torch_anim_p1/torch_idle.res" id="6_xmu1n"]
+[ext_resource type="Animation" uid="uid://b8ifs5rm0vec5" path="res://models/characters/torch_anim_p1/torch_idle_2.res" id="7_on31b"]
+[ext_resource type="Animation" uid="uid://dq3776h7i61w6" path="res://models/characters/torch_anim_p1/torch_run.res" id="8_wjurj"]
+[ext_resource type="Animation" uid="uid://ca5xfva3o6s88" path="res://models/characters/torch_anim_p1/torch_turn_left_180.res" id="9_4p410"]
+[ext_resource type="Animation" uid="uid://cuy3c61alq4dd" path="res://models/characters/torch_anim_p1/torch_turn_left_90.res" id="10_qukpk"]
+[ext_resource type="Animation" uid="uid://bs7upipoxmnn" path="res://models/characters/torch_anim_p1/torch_turn_right_180.res" id="11_gvaji"]
+[ext_resource type="Animation" uid="uid://bbet2eaona3ba" path="res://models/characters/torch_anim_p1/torch_turn_right_90.res" id="12_d3crc"]
+[ext_resource type="Animation" uid="uid://b235arvpba4ly" path="res://models/characters/torch_anim_p1/torch_walk.res" id="13_xbv43"]
+[ext_resource type="Animation" uid="uid://d30bllspk45qj" path="res://models/characters/uriel/basic_aa_anim.res" id="14_ueojy"]
+[ext_resource type="Texture2D" uid="uid://dvswi2nydpkim" path="res://models/img/tm0uikm2nlcc4u6ucvjo709bkb-933fb26380684a4f6ce65936baae2f08.png" id="14_yhgmf"]
+[ext_resource type="Animation" uid="uid://q8dmieudk4jf" path="res://models/characters/uriel/dance_anim.res" id="15_smouk"]
+[ext_resource type="Animation" uid="uid://dcdsjfbn3hf7i" path="res://models/characters/uriel/death_anim.res" id="16_qraf4"]
+[ext_resource type="Animation" uid="uid://blxnvycve7j3r" path="res://models/characters/uriel/heal_rage.res" id="17_ppmxs"]
+[ext_resource type="PackedScene" uid="uid://p20tnol4776u" path="res://scenes/ui.tscn" id="19_m62o8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0g1bx"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_upw6r"]
+_data = {
+"basic_aa_anim": ExtResource("14_ueojy"),
+"dance_anim": ExtResource("15_smouk"),
+"death_anim": ExtResource("16_qraf4"),
+"heal_rage": ExtResource("17_ppmxs"),
+"torch_crouch_left_90": ExtResource("2_ro4ef"),
+"torch_crouch_right_90": ExtResource("3_ui2ae"),
+"torch_crouch_walk": ExtResource("4_dlitk"),
+"torch_equip": ExtResource("5_hcmwy"),
+"torch_idle": ExtResource("6_xmu1n"),
+"torch_idle_2": ExtResource("7_on31b"),
+"torch_run": ExtResource("8_wjurj"),
+"torch_turn_left_180": ExtResource("9_4p410"),
+"torch_turn_left_90": ExtResource("10_qukpk"),
+"torch_turn_right_180": ExtResource("11_gvaji"),
+"torch_turn_right_90": ExtResource("12_d3crc"),
+"torch_walk": ExtResource("13_xbv43")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k50vu"]
+bg_color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.219608, 0.121569, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjlsk"]
+bg_color = Color(0.309804, 0.564706, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8t4ne"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="FogMaterial" id="FogMaterial_h6oct"]
+density = -7.0
+height_falloff = 1.1892e-05
+edge_fade = 0.0933033
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x0ak8"]
+size = Vector3(1, 1.96899, 1.03125)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_iwlkb"]
+viewport_path = NodePath("SubViewport2")
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_a31aj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.938635, 0, 0, 0, 1, 0, 0, 0, 0.95456, 0, 1.00097, 0)
+shape = SubResource("CylinderShape3D_0g1bx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
+libraries = {
+"torch_anim": SubResource("AnimationLibrary_upw6r")
+}
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.205406, 0)
+target_position = Vector3(0, -0.2, -1)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="HealthBar" type="ProgressBar" parent="SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.6725
+offset_top = -5.0
+offset_right = 55.6725
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_k50vu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vjlsk")
+value = 86.49
+show_percentage = false
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.40269, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_8t4ne")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(5.396, 0, 0, 0, 2.315, 0, 0, 0, 8.847, 0, 2.068, -0.2)
+size = Vector3(3.5923, 13.2296, 2.26787)
+shape = 0
+material = SubResource("FogMaterial_h6oct")
+
+[node name="HitArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976969, -0.91698)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0428467, -0.015625)
+shape = SubResource("BoxShape3D_x0ak8")
+
+[node name="SubViewport2" type="SubViewport" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -173.0
+offset_right = 256.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+texture = ExtResource("14_yhgmf")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 90, 0)
+layers = 16
+texture = SubResource("ViewportTexture_iwlkb")
+
+[node name="RegenCD" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[node name="FirstSkillCD" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.5
+one_shot = true
+
+[node name="SecondSkillCD" type="Timer" parent="."]
+process_callback = 0
+wait_time = 15.0
+one_shot = true
+
+[node name="BasicSkillBuffTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 15.0
+one_shot = true
+
+[node name="BasicSkillCD" type="Timer" parent="."]
+process_callback = 0
+wait_time = 90.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui_overlay_IG" parent="CanvasLayer" instance=ExtResource("19_m62o8")]
+
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
+[connection signal="timeout" from="RegenCD" to="." method="_on_regen_timer_timeout"]
+[connection signal="timeout" from="FirstSkillCD" to="." method="_on_first_skill_cd_timeout"]
+[connection signal="timeout" from="SecondSkillCD" to="." method="_on_second_skill_cd_timeout"]
+[connection signal="timeout" from="BasicSkillBuffTimer" to="." method="_on_basic_skill_buff_timer_timeout"]
+[connection signal="timeout" from="BasicSkillCD" to="." method="_on_basic_skill_cd_timeout"]

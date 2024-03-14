@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgj8kncwa1dma"]
+
+[ext_resource type="Shader" path="res://shaders/env_fog.gdshader" id="1_264t2"]
+
+[sub_resource type="Gradient" id="Gradient_aalwl"]
+offsets = PackedFloat32Array(0.336283, 0.482301)
+colors = PackedColorArray(0.00449036, 1.44392e-07, 0.431754, 1, 4.40524e-05, 3.76021e-09, 0.0198015, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_73csq"]
+gradient = SubResource("Gradient_aalwl")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_an4x1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xo6hd"]
+noise = SubResource("FastNoiseLite_an4x1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2b1nm"]
+shader = ExtResource("1_264t2")
+shader_parameter/noise_scale = 0.06
+shader_parameter/flatness = 1.57
+shader_parameter/density = 3.0
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_xo6hd")
+shader_parameter/grad_tex = SubResource("GradientTexture1D_73csq")
+
+[sub_resource type="Environment" id="Environment_02ygk"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_albedo = Color(0.027451, 0.027451, 0.368627, 1)
+volumetric_fog_length = 617.42
+
+[node name="environnement_fog" type="Node3D"]
+
+[node name="FogVolume" type="FogVolume" parent="."]
+layers = 2
+material = SubResource("ShaderMaterial_2b1nm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_02ygk")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2vt8j6ebocc4"
+path="res://.godot/imported/Shh Shh Sound Effect (128 kbps).mp3-e2373c62491e0710957cdc3aa483f67f.mp3str"
+
+[deps]
+
+source_file="res://audio/Shh Shh Sound Effect (128 kbps).mp3"
+dest_files=["res://.godot/imported/Shh Shh Sound Effect (128 kbps).mp3-e2373c62491e0710957cdc3aa483f67f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

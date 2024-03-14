@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq6bet7607vjm"]
+
+[ext_resource type="Script" path="res://lib/isometric_camera.gd" id="1_n35pi"]
+[ext_resource type="Script" path="res://lib/camera.gd" id="2_gi6bq"]
+
+[node name="CameraPivot" type="Node3D"]
+script = ExtResource("1_n35pi")
+
+[node name="Camera" type="Camera3D" parent="."]
+projection = 1
+fov = 170.473
+near = 0.001
+far = 15000.0
+script = ExtResource("2_gi6bq")

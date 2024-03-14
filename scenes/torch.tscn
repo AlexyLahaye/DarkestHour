@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://braonsrmliv37"]
+
+[ext_resource type="PackedScene" uid="uid://bitka7imi3mam" path="res://scenes/vfx_fire_red.tscn" id="1_4vo0g"]
+[ext_resource type="PackedScene" uid="uid://dke5f52u3c13n" path="res://models/items/torch_model.glb" id="2_8ooqq"]
+
+[node name="torch" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00476086, 0.134498, 0.00823987)
+
+[node name="vfx_fire_red" parent="." instance=ExtResource("1_4vo0g")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.014564, 0.386062, 0)
+
+[node name="torch_model" parent="." instance=ExtResource("2_8ooqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0138736, 0.0372024, -0.135103)

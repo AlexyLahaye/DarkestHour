@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcq2sagmkj23d"]
+
+[ext_resource type="PackedScene" uid="uid://c7hvr8iqfofha" path="res://maps/twisted_treeline.tscn" id="1_fm765"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_nq7mq"]
+[ext_resource type="PackedScene" uid="uid://d36teewi70o2a" path="res://scenes/player.tscn" id="2_y0k68"]
+[ext_resource type="PackedScene" uid="uid://cq6bet7607vjm" path="res://scenes/isometric_camera.tscn" id="4_6flat"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_nq7mq")
+
+[node name="Twisted-Treeline" parent="." instance=ExtResource("1_fm765")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera_pivot") instance=ExtResource("2_y0k68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+camera_pivot = NodePath("../CameraPivot")
+
+[node name="CameraPivot" parent="." instance=ExtResource("4_6flat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+
+[node name="Marker" type="MeshInstance3D" parent="."]

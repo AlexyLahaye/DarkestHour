@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://crrk1tifbvyri"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_nq7mq"]
+[ext_resource type="PackedScene" uid="uid://cq6bet7607vjm" path="res://scenes/isometric_camera.tscn" id="4_6flat"]
+
+[node name="Main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0108261, 0)
+script = ExtResource("1_nq7mq")
+
+[node name="CameraPivot" parent="." instance=ExtResource("4_6flat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0172939, 0.0708742, -0.00609273)
